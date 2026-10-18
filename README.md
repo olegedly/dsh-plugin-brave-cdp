@@ -67,22 +67,22 @@ package, falling back to `~/.local/bin/brave-cdp`, then to `cliPath` /
 
 ```bash
 # into a DSH profile (declares dsh.bundle.patch, so the tools row mounts itself)
-dsh plugin --profile web add dsh-plugin-brave-cdp
+dsh plugin --profile web add "github:olegedly/dsh-plugin-brave-cdp"
 
 # or from a checkout / tarball
 dsh plugin --profile web add /path/to/dsh-plugin-brave-cdp
 ```
 
-Then:
+Then confirm the endpoint is reachable:
 
 ```bash
 brave-cdp status     # endpoint UP + browser version + tab count => ready
 ```
 
-Standalone CLI, without DSH:
+Standalone CLI, without DSH (not on npm yet, so install it from the repository):
 
 ```bash
-npm install -g dsh-plugin-brave-cdp   # provides `brave-cdp`
+npm install -g "github:olegedly/dsh-plugin-brave-cdp"   # provides `brave-cdp`
 brave-cdp tabs
 brave-cdp snapshot -i
 brave-cdp click '@e4'
