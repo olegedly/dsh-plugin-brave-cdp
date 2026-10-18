@@ -45,7 +45,7 @@
   },
   "scripts": {
     "check": "node --check lib/index.js && node --check bin/brave-cdp.mjs",
-    "test": "node --test test/"
+    "test": "node --test test/*.test.mjs"
   },
   "peerDependencies": {
     "@deepseek-ai/dsh-tools": "^0.2.0-rc.2",
