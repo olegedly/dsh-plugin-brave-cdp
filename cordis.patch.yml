@@ -1,0 +1,17 @@
+# dsh-plugin-brave-cdp bundle patch: mount the Brave CDP tools into the profile.
+#
+# Mounted at the profile root rather than inside an agent preset, so every session
+# gets the tools without switching presets — that is the point of "drive my
+# browser" as a standing capability. Nine tools is a small always-on context cost,
+# and the whole family is this one row.
+#
+# The tools wrap the `brave-cdp` CLI that ships in this package (bin/brave-cdp.mjs).
+# Brave must be started with --remote-debugging-port=9222; the tools report that
+# clearly when the port is closed. The profile's own cordis.patch.yml is applied
+# after this bundle, so a deployment can override this row by id (for example to
+# point `cliPath` at another copy of the CLI, or change `port`).
+- insert:
+    - id: brave-cdp
+      name: 'dsh-plugin-brave-cdp'
+      config:
+        port: 9222

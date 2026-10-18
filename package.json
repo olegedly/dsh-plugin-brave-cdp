@@ -1,0 +1,60 @@
+{
+  "name": "dsh-plugin-brave-cdp",
+  "version": "0.2.0",
+  "description": "DSH tools that drive your running Brave browser over the Chrome DevTools Protocol",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "brave-cdp": "bin/brave-cdp.mjs"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olegedly/dsh-plugin-brave-cdp.git"
+  },
+  "homepage": "https://github.com/olegedly/dsh-plugin-brave-cdp#readme",
+  "bugs": {
+    "url": "https://github.com/olegedly/dsh-plugin-brave-cdp/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "brave",
+    "cdp",
+    "chrome-devtools-protocol",
+    "browser-automation",
+    "agent-tools"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "check": "node --check lib/index.js && node --check bin/brave-cdp.mjs",
+    "test": "node --test test/"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "^0.2.0-rc.2",
+    "@deepseek-ai/schemastery": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
